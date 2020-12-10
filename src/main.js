@@ -7,7 +7,7 @@ import '@/assets/css/iconfont/1.0.0/index.css' /* icofont*/
 
 // css
 import 'normalize.css/normalize.css'// A modern alternative to CSS resets
-import '@/styles/index.scss' // global css
+import '@/styles/index.css' // global css
 // 右键菜单
 import contentmenu from 'v-contextmenu'
 import 'v-contextmenu/dist/index.css'

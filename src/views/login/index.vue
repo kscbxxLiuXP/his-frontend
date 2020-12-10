@@ -53,7 +53,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style >
 .login-container {
   display: flex;
   align-items: center;
@@ -62,6 +62,7 @@ export default {
   position: relative;
   height: 900px;
 }
+
 .login-container::before {
   z-index: -999;
   content: "";
@@ -73,15 +74,19 @@ export default {
   background-image: url("../../assets/images/top_images/login.jpg");
   background-size: cover;
 }
+
 .login-info {
   padding-left: 60px;
 }
+
 .login-info-title {
   line-height: 90px;
 }
+
 .login-info-item {
   font-size: 14px;
 }
+
 .login-border {
   display: flex;
   justify-content: center;
@@ -91,56 +96,60 @@ export default {
   border-radius: 6px;
   box-shadow: 1px 1px 2px #eee;
 }
+
 .login-main {
   border-radius: 3px;
   box-sizing: border-box;
   background-color: #fff;
 }
+
 .login-main > h3 {
   margin-bottom: 20px;
 }
+
 .login-main > p {
   color: #76838f;
 }
+
 .login-title {
   margin: 0 0 20px;
   text-align: center;
   color: #409eff;
   letter-spacing: 3px;
 }
+
 .login-submit {
   margin-top: 20px;
   width: 100%;
   border-radius: 28px;
 }
+
 .login-form {
   margin: 10px 0;
-  .el-form-item__content {
-    width: 270px;
-  }
-  .el-form-item {
-    margin-bottom: 12px;
-  }
-  .el-input {
-    input {
-      text-indent: 5px;
-      border-color: #dcdcdc;
-      border-radius: 3px;
-    }
-    .el-input__prefix {
-      i {
-        padding: 0 5px;
-        font-size: 16px !important;
-      }
-    }
-  }
 }
+.login-form .el-form-item__content {
+  width: 270px;
+}
+.login-form .el-form-item {
+  margin-bottom: 12px;
+}
+.login-form .el-input input {
+  text-indent: 5px;
+  border-color: #dcdcdc;
+  border-radius: 3px;
+}
+.login-form .el-input .el-input__prefix i {
+  padding: 0 5px;
+  font-size: 16px !important;
+}
+
 .login-code {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin: 0 0 0 10px;
 }
+
 .login-code-img {
   margin-top: 2px;
   width: 100px;

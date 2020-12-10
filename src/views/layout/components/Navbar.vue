@@ -5,11 +5,11 @@
     <breadcrumb class="breadcrumb-container"></breadcrumb>
 
     <div class="right-menu">
-      <div class="hello right-menu-item" >
-        <el-tag type="success">{{nowuser.usertype}}</el-tag>
+      <div class="hello right-menu-item">
+        <el-tag type="success">{{ nowuser.usertype }}</el-tag>
       </div>
       <div class="hello right-menu-item" style="font-size: 14px">
-        <span style="margin-top: 10px">你好，{{name}}</span>
+        <span style="margin-top: 10px">你好，{{ name }}</span>
       </div>
       <el-dropdown class="avatar-container right-menu-item hover-effect" trigger="hover">
         <div class="avatar-wrapper">
@@ -33,125 +33,124 @@
 </template>
 
 <script>
-  import { mapGetters } from 'vuex'
+import { mapGetters } from 'vuex'
 
-  import Breadcrumb from '@/components/breadcrumb'
-  import Hamburger from '@/components/hamburger'
+import Breadcrumb from '@/components/breadcrumb'
+import Hamburger from '@/components/hamburger'
 
-  export default {
-    name: 'navBar',
-    components: {
-      Breadcrumb,
-      Hamburger
+export default {
+  name: 'navBar',
+  components: {
+    Breadcrumb,
+    Hamburger
+  },
+  computed: {
+    ...mapGetters(['sidebar', 'name', 'nowuser'])
+  },
+  methods: {
+    toggleSideBar() {
+      this.$store.dispatch('ToggleSideBar')
     },
-    computed: {
-      ...mapGetters(['sidebar', 'name','nowuser'])
-    },
-    methods: {
-      toggleSideBar() {
-        this.$store.dispatch('ToggleSideBar')
-      },
-      logout() {
-        this.$store.dispatch('LogOut').then(() => {
-          location.reload() // In order to re-instantiate the vue-router object to avoid bugs
-        })
-      }
+    logout() {
+      this.$store.dispatch('LogOut').then(() => {
+        location.reload() // In order to re-instantiate the vue-router object to avoid bugs
+      })
     }
   }
+}
 </script>
 
-<style rel="stylesheet/scss" lang="scss" scoped>
-  .navbar {
-    height: 50px;
-    overflow: hidden;
-    position: relative;
-    background: #fff;
-    box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+<style scoped>
+.navbar {
+  height: 50px;
+  overflow: hidden;
+  position: relative;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
+}
 
-    .hamburger-container {
-      line-height: 58px;
-      height: 50px;
-      float: left;
-      padding: 0 10px;
-    }
+.navbar .hamburger-container {
+  line-height: 58px;
+  height: 50px;
+  float: left;
+  padding: 0 10px;
+}
 
-    .breadcrumb-container {
-      float: left;
-    }
+.navbar .breadcrumb-container {
+  float: left;
+}
 
-    .hello {
-      font-size: 12px;
-    }
+.navbar .hello {
+  font-size: 12px;
+}
 
-    .errLog-container {
-      display: inline-block;
-      vertical-align: top;
-    }
+.navbar .errLog-container {
+  display: inline-block;
+  vertical-align: top;
+}
 
-    .right-menu {
-      float: right;
-      height: 100%;
-      line-height: 50px;
+.navbar .right-menu {
+  float: right;
+  height: 100%;
+  line-height: 50px;
+}
 
-      &:focus {
-        outline: none;
-      }
+.navbar .right-menu:focus {
+  outline: none;
+}
 
-      .right-menu-item {
-        display: inline-block;
-        padding: 0 8px;
-        height: 100%;
-        font-size: 18px;
-        color: #5a5e66;
-        vertical-align: text-bottom;
+.navbar .right-menu .right-menu-item {
+  display: inline-block;
+  padding: 0 8px;
+  height: 100%;
+  font-size: 18px;
+  color: #5a5e66;
+  vertical-align: text-bottom;
+}
 
-        &.hover-effect {
-          cursor: pointer;
-          transition: background .3s;
+.navbar .right-menu .right-menu-item.hover-effect {
+  cursor: pointer;
+  transition: background 0.3s;
+}
 
-          &:hover {
-            background: rgba(0, 0, 0, .025)
-          }
-        }
-      }
+.navbar .right-menu .right-menu-item.hover-effect:hover {
+  background: rgba(0, 0, 0, 0.025);
+}
 
-      .screenfull {
-        height: 20px;
-      }
+.navbar .right-menu .screenfull {
+  height: 20px;
+}
 
-      .international {
-        vertical-align: top;
-      }
+.navbar .right-menu .international {
+  vertical-align: top;
+}
 
-      .theme-switch {
-        vertical-align: 15px;
-      }
+.navbar .right-menu .theme-switch {
+  vertical-align: 15px;
+}
 
-      .avatar-container {
+.navbar .right-menu .avatar-container {
+  margin-right: 30px;
+}
 
-        margin-right: 30px;
+.navbar .right-menu .avatar-container .avatar-wrapper {
+  cursor: pointer;
+  position: relative;
+}
 
-        .avatar-wrapper {
-          cursor: pointer;
+.navbar .right-menu .avatar-container .avatar-wrapper .user-avatar {
+  /*padding-top: 5px;*/
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
 
-          position: relative;
+.navbar .right-menu .avatar-container .avatar-wrapper .el-icon-caret-bottom {
+  position: absolute;
+  right: -20px;
+  top: 25px;
+  font-size: 12px;
+}
 
-          .user-avatar {
-            /*padding-top: 5px;*/
 
-            width: 40px;
-            height: 40px;
-            border-radius: 10px;
-          }
-
-          .el-icon-caret-bottom {
-            position: absolute;
-            right: -20px;
-            top: 25px;
-            font-size: 12px;
-          }
-        }
-      }
-    }
-  }
 </style>

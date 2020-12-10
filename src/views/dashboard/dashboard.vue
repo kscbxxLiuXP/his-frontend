@@ -9,10 +9,10 @@
         <el-col :span="7">
           <el-card class="welcome">
             <div slot="header" class="welcome-header"><span>欢迎</span></div>
-            <div class="welcome-text">{{hello}}</div>
+            <div class="welcome-text">{{ hello }}</div>
             <div class="welcome-user">
-              {{name}}
-              {{nowuser.userID}}
+              {{ name }}
+              {{ nowuser.userID }}
             </div>
           </el-card>
         </el-col>
@@ -68,232 +68,216 @@
 </template>
 
 <script>
-  import DataTabs from '@/components/data-tabs/data-tabs'
-  import Weather from '@/components/weather/index'
-  import { mapGetters } from 'vuex'
+import DataTabs from '@/components/data-tabs/data-tabs'
+import Weather from '@/components/weather/index'
+import { mapGetters } from 'vuex'
 
-  export default {
-    name: 'report',
-    components: {
-      Weather,
-      DataTabs
-    },
-    data() {
-      return {
-        option: {
-          span: 8,
-          color: '#15A0FF'
-        },
-        hello: '早上好',
-        easyDataOption: {
-          span: 6,
-          data: [
-            {
-              title: '累计诊断',
-              subtitle: '实时',
-              count: 1314,
-              text: '您在本院已经接诊了这么多患者了，继续加油哦！',
-              color: 'rgb(49, 180, 141)',
-              key: '总计'
-            }, {
-              title: '今日诊断',
-              subtitle: '实时',
-              count: 15,
-              text: '医生三世，不服其药。',
-              color: 'rgb(117, 56, 199)',
-              key: '今日'
-            },
-            {
-              title: '昨日诊断',
-              subtitle: '实时',
-              count: 62,
-              text: '人处疾则贵医',
-              color: 'rgb(56, 161, 242)',
-              key: '昨日'
-            }
+export default {
+  name: 'report',
+  components: {
+    Weather,
+    DataTabs
+  },
+  data() {
+    return {
+      option: {
+        span: 8,
+        color: '#15A0FF'
+      },
+      hello: '早上好',
+      easyDataOption: {
+        span: 6,
+        data: [
+          {
+            title: '累计诊断',
+            subtitle: '实时',
+            count: 1314,
+            text: '您在本院已经接诊了这么多患者了，继续加油哦！',
+            color: 'rgb(49, 180, 141)',
+            key: '总计'
+          }, {
+            title: '今日诊断',
+            subtitle: '实时',
+            count: 15,
+            text: '医生三世，不服其药。',
+            color: 'rgb(117, 56, 199)',
+            key: '今日'
+          },
+          {
+            title: '昨日诊断',
+            subtitle: '实时',
+            count: 62,
+            text: '人处疾则贵医',
+            color: 'rgb(56, 161, 242)',
+            key: '昨日'
+          }
 
-          ]
-        }
-
+        ]
       }
-    },
-    methods: {},
-    created() {
-
-    },
-    watch: {},
-    mounted() {
-    },
-    computed: {
-
-      ...mapGetters(['sidebar', 'name', 'nowuser'])
 
     }
+  },
+  methods: {},
+  created() {
+
+  },
+  watch: {},
+  mounted() {
+  },
+  computed: {
+
+    ...mapGetters(['sidebar', 'name', 'nowuser'])
+
   }
+}
 </script>
 
 <style scoped>
-  .item {
-    margin-bottom: 16px;
-  }
+.item {
+  margin-bottom: 16px;
+}
 
-  .welcome {
-    margin-top: 15px;
-    height: 325px;
+.welcome {
+  margin-top: 15px;
+  height: 325px;
 
 
-  }
+}
 
-  .welcome-text {
-    font-size: 30px;
+.welcome-text {
+  font-size: 30px;
 
-  }
+}
 
-  .welcome-user {
-    margin-top: 20px;
-    font-size: 18px;
-  }
+.welcome-user {
+  margin-top: 20px;
+  font-size: 18px;
+}
 
-  .weather-wrapper {
-    margin-top: 15px;
+.weather-wrapper {
+  margin-top: 15px;
 
-  }
+}
 
-  .weather {
-    margin: 5px;
-    /*box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.2);*/
-  }
+.weather {
+  margin: 5px;
+  /*box-shadow: 4px 4px 40px rgba(0, 0, 0, 0.2);*/
+}
 
 </style>
-<style lang="scss">
-  @import '../../styles/data-card.scss';
-  @import '../../styles/data-display.scss';
-  @import '../../styles/data-icons.scss';
-  @import '../../styles/data-tabs.scss';
+<style>
+@import '../../styles/data-card.css';
+@import '../../styles/data-display.css';
+@import '../../styles/data-icons.css';
+@import '../../styles/data-tabs.css';
 </style>
-<style lang="scss">
-  $top: top;
-  $bottom: bottom;
-  $left: left;
-  $right: right;
-  $leftright: ($left, $right);
-  $pinkk: #eec2d3;
-  $bluee: #409eff;
-  $yelloww: #f4d884;
-  $grennn: #89dda0;
-  $purplee: #78a2ea;
-  $lightBluee: #b8d6ff;
+<style>
+.card {
+  background: #fff;
+  -webkit-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+}
 
-  $list: bluee pinkk yelloww grennn purplee lightBluee;
-  $list1: $bluee $pinkk $yelloww $grennn $purplee $lightBluee;
-  %shadow {
-    background: #fff;
-    -webkit-box-shadow: 4px 4px 20px rgba(0, 0, 0, 0.2);
-    box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.1);
-    border-color: rgba(0, 0, 0, 0.2);
+.card .titlee {
+  font-size: 14px;
+  padding: 10px;
+}
 
-    .titlee {
-      font-size: 14px;
-      padding: 10px;
+.card .titlee i {
+  margin-right: 5px;
+}
 
-      i {
-        margin-#{$right}: 5px;
-      }
-    }
-  }
+.card {
+  color: #666;
+}
 
-  @mixin flex($direction:row,$content:space-between) {
-    display: flex;
-    flex-direction: $direction;
-    justify-content: $content;
-  }
+.card ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
-  .card {
-    color: #666;
-    @extend %shadow;
+.card ul li {
+  flex: 1;
+  list-style: none;
+}
 
-    ul {
-      @include flex;
+.card ul li a {
+  color: #666666;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
-      li {
-        flex: 1;
-        list-style: none;
+.card ul li a span {
+  height: 44px;
+}
 
-        a {
-          color: #666666;
-          align-items: center;
-          padding-#{$top}: 20px;
-          padding-#{$bottom}: 20px;
-          @include flex(column);
+.card ul li a .num {
+  line-height: 44px;
+  font-size: 42px;
+  color: #409eff;
+  margin: 0px;
+}
 
-          span {
-            height: 44px;
-          }
+.card ul li .kjfs-bluee {
+  color: #409eff;
+}
 
-          .num {
-            line-height: 44px;
-            font-size: 42px;
-            color: $bluee;
-            margin: 0px;
-          }
-        }
+.card ul li .kjfs-pinkk {
+  color: #eec2d3;
+}
 
-        .kjfs-bluee {
-          color: $bluee;
-        }
+.card ul li .kjfs-yelloww {
+  color: #f4d884;
+}
 
-        .kjfs-pinkk {
-          color: $pinkk;
-        }
+.card ul li .kjfs-grennn {
+  color: #89dda0;
+}
 
-        .kjfs-yelloww {
-          color: $yelloww;
-        }
+.card ul li .kjfs-purplee {
+  color: #78a2ea;
+}
 
-        .kjfs-grennn {
-          color: $grennn;
-        }
+.card ul li .kjfs-lightBluee {
+  color: #b8d6ff;
+}
 
-        .kjfs-purplee {
-          color: $purplee;
-        }
+.card ul li:hover .kjfs-bluee {
+  color: #ffffff;
+  background: #409eff;
+}
 
-        .kjfs-lightBluee {
-          color: $lightBluee;
-        }
+.card ul li:hover .kjfs-pinkk {
+  color: #ffffff;
+  background: #eec2d3;
+}
 
-        &:hover {
-          .kjfs-bluee {
-            color: #ffffff;
-            background: $bluee;
-          }
+.card ul li:hover .kjfs-yelloww {
+  color: #ffffff;
+  background: #f4d884;
+}
 
-          .kjfs-pinkk {
-            color: #ffffff;
-            background: $pinkk;
-          }
+.card ul li:hover .kjfs-grennn {
+  color: #ffffff;
+  background: #89dda0;
+}
 
-          .kjfs-yelloww {
-            color: #ffffff;
-            background: $yelloww;
-          }
+.card ul li:hover .kjfs-purplee {
+  color: #ffffff;
+  background: #78a2ea;
+}
 
-          .kjfs-grennn {
-            color: #ffffff;
-            background: $grennn;
-          }
+.card ul li:hover .kjfs-lightBluee {
+  color: #ffffff;
+  background: #b8d6ff;
+}
 
-          .kjfs-purplee {
-            color: #ffffff;
-            background: $purplee;
-          }
 
-          .kjfs-lightBluee {
-            color: #ffffff;
-            background: $lightBluee;
-          }
-        }
-      }
-    }
-  }
+
 </style>
